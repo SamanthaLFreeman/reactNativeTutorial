@@ -13,9 +13,11 @@ const App = () => {
   }
 
   const handleSubmit = () => {
-    setCourseGoals(currentGoals => [...currentGoals, {id: Math.random().toString(), value: enteredGoal}]);
+    if (enteredGoal.length) {
+      setCourseGoals(currentGoals => [...currentGoals, { id: Math.random().toString(), value: enteredGoal }]);
+      setIsAddMode(false);
+    }
     setEnteredGoal('');
-    setIsAddMode(false);
   }
 
   const removeGoalHandler = goalId => {
